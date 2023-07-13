@@ -11,8 +11,8 @@ struct SemesterCompleteDTO: Decodable {
     let id: Int
     let code: String
     let description: String
-    let start: String
-    let end: String
+    let start: String?
+    let end: String?
     let disciplines: Items<DisciplineCompleteDTO>
     
     enum CodingKeys: String, CodingKey {
@@ -35,9 +35,9 @@ struct DisciplineCompleteDTO: Decodable {
     
     enum CodingKeys: String, CodingKey {
         case id
+        case classes
         case missLimit = "limiteFaltas"
         case activity = "atividadeCurricular"
-        case classes
         case evaluations = "avaliacoes"
         case result = "resultado"
     }
@@ -50,7 +50,7 @@ struct ClassCompleteDTO: Decodable {
     let allocations: Items<Allocation>?
     let teachers: Items<PersonWrapperDTO>
     let groupDetails: GroupDTO
-    let lectures: ItemsPaged<LectureDTO>
+    let lectures: ItemsPaged<LectureDTO>?
     
     enum CodingKeys: String, CodingKey {
         case id
