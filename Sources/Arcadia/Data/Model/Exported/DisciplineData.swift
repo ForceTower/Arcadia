@@ -44,7 +44,7 @@ public struct ClassGrade: Codable {
     public let weight: Int
     public let value: Double?
     
-    func hasGrade() -> Bool {
+    public func hasGrade() -> Bool {
         return value != nil
     }
 }
@@ -91,10 +91,10 @@ public struct ClassSpace: Identifiable, Codable {
 
 public struct DisciplineResult: Codable {
     public let mean: Double?
-    public let missedClasses: Int
-    public let description: String
-    public let approved: Bool
-    public let underRevision: Bool
+    public let missedClasses: Int?
+    public let description: String?
+    public let approved: Bool?
+    public let underRevision: Bool?
     
     enum CodingKeys: String, CodingKey {
         case mean = "media"

@@ -65,7 +65,7 @@ struct ClassCompleteDTO: Decodable {
 
 struct EvaluationDTO: Decodable {
     let name: String?
-    let grades: Items<GradeDTO>
+    let grades: Items<GradeDTO>?
     
     enum CodingKeys: String, CodingKey {
         case name = "nome"
