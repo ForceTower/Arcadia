@@ -11,11 +11,12 @@ import Foundation
 class ARTimestampInterceptor: RequestInterceptor {
     func adapt(_ urlRequest: URLRequest, for session: Alamofire.Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
         var request = urlRequest
-        if var url = request.url {
-            url.append(queryItems: [
-                URLQueryItem(name: "_", value: "\(Int(Date().timeIntervalSince1970 * 1000))")
-            ])
-            request.url = url
+        if let url = request.url,
+           var components = URLComponents(url: url, resolvingAgainstBaseURL: false),
+           var items = components.queryItems {
+            items.append(URLQueryItem(name: "_", value: "\(Int(Date().timeIntervalSince1970 * 1000))"))
+            components.queryItems = items
+            request.url = components.url
         }
         completion(.success(request))
     }

@@ -34,4 +34,8 @@ public class Arcadia {
     public func grades(forProfile profile: Int, atSemester semester: Int) async -> Result<[DisciplineData], AFError> {
         return await GradesOperation.execute(session, profile, semester)
     }
+    
+    public func lectures(for groupId: Int, limit: Int, offset: Int) async -> Result<[Lecture], AFError> {
+        return await LecturesOperation.execute(session, groupId, limit, offset)
+    }
 }
