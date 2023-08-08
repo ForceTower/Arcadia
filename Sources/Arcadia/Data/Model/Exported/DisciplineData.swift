@@ -76,9 +76,9 @@ public struct ClassTime: Identifiable, Codable {
 public struct ClassSpace: Identifiable, Codable {
     public let id: Int
     public let type: String?
-    public let campus: String
-    public let location: String
-    public let modulo: String
+    public let campus: String?
+    public let location: String?
+    public let modulo: String?
     
     enum CodingKeys: String, CodingKey {
         case id
