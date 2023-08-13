@@ -26,7 +26,7 @@ struct DisciplineDTO: Decodable {
 }
 
 struct DisciplineDepartment: Decodable {
-    let name: String
+    let name: String?
     
     enum CodingKeys: String, CodingKey {
         case name = "nome"

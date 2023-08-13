@@ -14,7 +14,7 @@ extension DisciplineCompleteDTO {
             code: self.activity.code.trimmingCharacters(in: .whitespaces),
             program: self.activity.program?.trimmingCharacters(in: .whitespaces),
             hours: self.activity.hours,
-            department: self.activity.department?.name.trimmingCharacters(in: .whitespaces),
+            department: self.activity.department?.name?.trimmingCharacters(in: .whitespaces),
             classes: self.classes.items.map({ clazz in
                 DisciplineClass(
                     id: clazz.id,
